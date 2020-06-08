@@ -16,7 +16,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
         title: Text('Profile'),
       ),
       body: Container(
-        margin: EdgeInsets.all(30),
+        // margin: EdgeInsets.all(30),
         padding: EdgeInsets.all(30),
         child: Column(
           children: <Widget>[
@@ -27,8 +27,17 @@ class _ProfileScreenState extends State<ProfileScreen> {
             SizedBox(
               height: 24,
             ),
-            ListTile(
-              title: Text(widget.userName),
+            Container(
+              width: double.infinity,
+              child: Card(
+                
+                elevation: 2,
+                color: Colors.grey[100],
+                child: ListTile(
+                  title: Text('UserName'),
+                  subtitle: Text(widget.userName),
+                ),
+              ),
             ),
           ],
         ),
