@@ -1,4 +1,4 @@
-import 'package:chat_app/screens/profile_scree.dart';
+import 'package:chat_app/screens/profile_screen.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -8,6 +8,8 @@ import 'package:chat_app/widgets/chat/messages.dart';
 import 'package:chat_app/widgets/chat/new_message.dart';
 
 class ChatScreen extends StatefulWidget {
+  final secondUserId;
+  ChatScreen(this.secondUserId);
   @override
   _ChatScreenState createState() => _ChatScreenState();
 }
@@ -15,7 +17,6 @@ class ChatScreen extends StatefulWidget {
 class _ChatScreenState extends State<ChatScreen> {
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     final fbm = FirebaseMessaging();
     fbm.requestNotificationPermissions();
@@ -94,16 +95,16 @@ class _ChatScreenState extends State<ChatScreen> {
                 FirebaseAuth.instance.signOut();
               }
             },
-          ),
+          ),  
         ],
       ),
       body: Container(
         child: Column(
           children: <Widget>[
             Expanded(
-              child: Messages(),
+              child: Messages(widget.secondUserId),
             ),
-            NewMessage(),
+            NewMessage(widget.secondUserId),
           ],
         ),
       ),
