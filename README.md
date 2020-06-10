@@ -1,6 +1,7 @@
 # chat_app
 
 A new Flutter project.
+This chat app is being designed as a platform where different users can sign up and can chat with other users being located far away in real time.
 
 ## Getting Started
 
